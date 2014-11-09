@@ -7,5 +7,5 @@ a nice minesweeper if you ever feel like just playing one.
 Use the makefile to either compile it to the bin directory with 'make build'
 or compile and run it with 'make run'
 
-Use the arrow keys to move selected box and the 'x' key to break it.
-Press ESC for setting and other goodies.
+Use the arrow keys to navigate and the 'x' key to break the boxes.
+Press ESC for settings and other goodies.
