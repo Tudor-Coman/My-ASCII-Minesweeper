@@ -2,13 +2,13 @@
 
 int main ()
 {
-        initscr ();
-        keypad(stdscr, TRUE);
+	initscr ();
+	keypad(stdscr, TRUE);
 	curs_set(0);
-        start_color();
+	start_color();
 	set_escdelay(25);
 	init_pair (1, COLOR_WHITE, COLOR_BLACK);
-        init_pair (2, COLOR_RED, COLOR_BLACK);
+	init_pair (2, COLOR_RED, COLOR_BLACK);
 	init_pair (3, COLOR_BLACK, COLOR_WHITE);
 	init_pair (4, COLOR_BLACK, COLOR_RED);
 	init_pair (5, COLOR_RED, COLOR_CYAN);
@@ -22,7 +22,7 @@ int main ()
 	COORD poz;
 	TIMP start={0,0,0};
 	ELEMENT** grila;
-	grila = INIT_funct (lin, col, mines, &poz, &SET, &NEW, &game_state, &helper);
+	grila = INIT_funct(lin, col, mines, &poz, &SET, &NEW, &game_state, &helper);
 
 	do {
 
@@ -30,30 +30,13 @@ int main ()
 		INPUT = getch ();
 
 		switch(INPUT) {
-		case 27: MENU_funct (&EXIT, &NEW, &newlin, &newcol, &newmines, &SAVE, &LOAD); break;
-		case KEY_RIGHT: if (poz.x < col - 1) 
-					++poz.x; 
-				else 
-					poz.x = 0; 
-		break;
+		case 27: MENU_funct (&EXIT, &NEW, &newlin, &newcol, 
+			&newmines, &SAVE, &LOAD); break;
 
-		case KEY_LEFT: if(poz.x > 0)
-					--poz.x; 
-				else
-					poz.x = col - 1;
-		break;
-
-		case KEY_UP: if (poz.y > 0)
-					--poz.y;
-				else
-					poz.y = lin - 1;
-		break;
-
-		case KEY_DOWN: if (poz.y < lin - 1)
-					++poz.y;
-				else 
-					poz.y = 0;
-		break;
+		case KEY_RIGHT: if (poz.x < col - 1 ) ++poz.x; else poz.x = 0; break;
+		case KEY_LEFT: if (poz.x > 0 ) --poz.x; else poz.x = col - 1; break;
+		case KEY_UP: if (poz.y > 0) --poz.y; else poz.y = lin - 1; break;
+		case KEY_DOWN: if (poz.y < lin - 1) ++poz.y; else poz.y = 0; break;
 
 		case 'x': if(grila[poz.y][poz.x].revealed == 0)
 				if (!SET) {
@@ -128,7 +111,8 @@ int main ()
 
                         for(i=0;i<lin;i++)
                                 for(j=0;j<col;j++)
-                                        fread(&grila[i][j], sizeof(ELEMENT), 1, loadfile);
+                                        fread(&grila[i][j], 
+											sizeof(ELEMENT), 1, loadfile);
 
                         fclose(loadfile);
 			first_stamp = time(NULL) - first_stamp;
@@ -141,11 +125,13 @@ int main ()
 					if(grila[i][j].mine == 1)
 						grila[i][j].revealed = 1;
 			do
-				SHOW_funct(grila, lin, col, poz, helper, first_stamp, SET, &start);
+				SHOW_funct(grila, lin, col, poz, helper, 
+					first_stamp, SET, &start);
 			while(getch()!=27);			
 			
 			while(!EXIT && !NEW)
-				MENU_funct (&EXIT, &NEW, &newlin, &newcol, &newmines, &SAVE, &LOAD);		
+				MENU_funct (&EXIT, &NEW, &newlin, &newcol, 
+					&newmines, &SAVE, &LOAD);		
 		}
 		
 		bricks=0;
@@ -160,7 +146,7 @@ int main ()
 		if (game_state == 1) {
 
 			do {
-                                clear();
+				clear();
 				refresh();
 				color_set(2, NULL);
 				mvprintw(10,20, "CONGRATULATIONS!!! YOU WON!");
@@ -169,24 +155,26 @@ int main ()
                         while(getch()!=27);
 
 			while(!EXIT && !NEW)
-                                MENU_funct (&EXIT, &NEW, &newlin, &newcol, &newmines, &SAVE, &LOAD);
-                }
+				MENU_funct (&EXIT, &NEW, &newlin, &newcol, &newmines, 
+					&SAVE, &LOAD);
+		}
 
 
 		if (NEW) {
 			for(i=0;i<lin;i++)
-				free(grila[i]);
+			free(grila[i]);
 			free(grila);
 			lin=newlin;
-                        col=newcol;
-                        mines=newmines;
+			col=newcol;
+			mines=newmines;
 
-			grila=INIT_funct (lin, col, mines, &poz, &SET, &NEW, &game_state, &helper);
+			grila=INIT_funct (lin, col, mines, &poz, &SET, 
+				&NEW, &game_state, &helper);
 			continue;
 		}
 	}
 	while(!EXIT);
 	refresh ();
-        endwin ();
-        return 0;
+	endwin ();
+	return 0;
 }

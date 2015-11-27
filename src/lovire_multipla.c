@@ -24,7 +24,7 @@ void lovire_multipla(ELEMENT **grila, int lin, int col, COORD poz, int *game_sta
 						grila[poz.y+i][poz.x+j].revealed == 0) {
 						new_poz.x = poz.x + j;
 						new_poz.y = poz.y + i;
-                        BREAK_funct(grila, lin, col, new_poz, game_state);
+						BREAK_funct(grila, lin, col, new_poz, game_state);
 					}
 }
 
