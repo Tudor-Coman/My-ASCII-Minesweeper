@@ -21,10 +21,14 @@ void SETTINGS_funct (int *lin, int *col, int *mines)
                 color_set (2, NULL);
 
                 switch (SELECTOR) {
-                        case 1: mvprintw (center.y+0, center.x, ">  Lines   <  %2d  >", *lin); break;
-                        case 2: mvprintw (center.y+1, center.x, ">  Columns <  %2d  >", *col); break;
-                        case 3: mvprintw (center.y+2, center.x, ">  Mines   <  %2d  >", *mines); break;
-                        case 4: mvprintw (center.y+4, center.x, ">  Exit Settings"); break;
+                        case 1: mvprintw (center.y+0, center.x, 
+							">  Lines   <  %2d  >", *lin); break;
+                        case 2: mvprintw (center.y+1, center.x, 
+							">  Columns <  %2d  >", *col); break;
+                        case 3: mvprintw (center.y+2, center.x, 
+								">  Mines   <  %2d  >", *mines); break;
+                        case 4: mvprintw (center.y+4, center.x, 
+							">  Exit Settings"); break;
                 }
 
                 INPUT = getch();

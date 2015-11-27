@@ -1,8 +1,7 @@
 Simple Minesweeper game made with the curses.h library.
+
 This is my first game ever made as the final project for my first year
 C programming course.
-My coding style was horrid back then so it is really hard to read, but it's
-a nice minesweeper if you ever feel like just playing one.
 
 Use the makefile to either compile it to the bin directory with 'make build'
 or compile and run it with 'make run'
