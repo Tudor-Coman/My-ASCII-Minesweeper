@@ -1,5 +1,6 @@
 #include "minesweeper.h"
 
+
 void lovire_multipla(ELEMENT **grila, int lin, int col, COORD poz, int *game_state)
 {
 	int i,j, flagged = 0;
