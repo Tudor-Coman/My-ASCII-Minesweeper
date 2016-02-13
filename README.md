@@ -1,3 +1,4 @@
+### My ASCII Minesweeper
 Simple Minesweeper game made with the curses.h library.
 
 This is my first game ever made as the final project for my first year
@@ -10,4 +11,4 @@ Use the arrow keys to navigate.
 Press 'm' to mark a box or 'x' key to break the boxes.
 Press ESC for settings and other goodies.
 
-![Game Look](/pics/mine.png)
+![Game Look](/pics/mine.png =462x342)
