@@ -20,6 +20,6 @@ If the number of unknown boxes around a newly broken box is equal the number of 
 ![](/pics/multiple_mark.png)
 
 #### Multiple Hit
-If the number of marked boxes around a newly broken box is equal the number of mines indicated by the same box, pressing 'x' on the box hits all the unmarked neighbours around they are presumed not to be mines(they can be and doing so will cost you the game).
+If the number of marked boxes around a newly broken box is equal the number of mines indicated by the same box, pressing 'x' on the box hits all the unmarked neighbours around because they are presumed not to be mines(they can be and doing so will cost you the game).
 
 ![](/pics/multiple_hit.png)
